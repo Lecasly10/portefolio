@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Victorien Denoyelle – Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+  <!-- Fond géométrique animé -->
+  <div class="bg-shapes">
+    <div class="shape shape-1" data-speed="0.2"></div>
+    <div class="shape shape-2" data-speed="0.35"></div>
+    <div class="shape shape-3" data-speed="0.15"></div>
+    <div class="shape shape-4" data-speed="0.3"></div>
+  </div>
+
+  <div class="page">
+    <header class="header">
+      <div class="logo">VD.</div>
+      <nav class="nav">
+        <a href="#about">À propos</a>
+        <a href="#projects">Projets</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="hero" id="top">
+        <div class="hero-text">
+          <p class="hero-kicker">Bonjour, moi c’est</p>
+          <h1>Victorien <span>Denoyelle</span></h1>
+          <p class="hero-subtitle">
+            Développeur passionné par le C, C#, le web et la création d’outils pour les simracers.
+          </p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn primary">Voir mes projets</a>
+            <a href="#contact" class="btn ghost">Me contacter</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- À propos -->
+      <section class="section" id="about">
+        <h2 class="section-title">À propos</h2>
+        <p class="section-text">
+          Je suis étudiant en informatique et développeur polyvalent : C, C#, web, SQL, réseaux...
+          J’aime construire des projets concrets (overlays, télémétrie, applis desktop & web) avec un
+          focus sur l’UX et les performances.
+        </p>
+        <div class="tags">
+          <span class="tag">C</span>
+          <span class="tag">C# / WPF</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">HTML / CSS</span>
+          <span class="tag">SQL</span>
+          <span class="tag">Réseaux</span>
+        </div>
+      </section>
+
+      <!-- Projets -->
+      <section class="section" id="projects">
+        <h2 class="section-title">Projets</h2>
+        <div class="projects-grid">
+          <article class="project-card">
+            <h3>TelemetryHub</h3>
+            <p>
+              Boîtier de télémétrie pour voiture réelle / simracing, envoi de données en temps réel
+              vers un dashboard personnalisé.
+            </p>
+            <p class="project-tech">C • Microcontrôleurs • Réseaux</p>
+          </article>
+          <article class="project-card">
+            <h3>Overlay iRacing</h3>
+            <p>
+              Overlay en C#/WPF pour afficher des informations de course, delta temps et stratégies
+              en live pendant les sessions.
+            </p>
+            <p class="project-tech">C# • WPF</p>
+          </article>
+          <article class="project-card">
+            <h3>Site F1 / OpenData</h3>
+            <p>
+              Site d’actualité F1 avec récupération de données en temps réel via API, classement et
+              stats de course.
+            </p>
+            <p class="project-tech">TypeScript • API REST</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Contact -->
+     <section class="section" id="contact">
+        <h2 class="section-title">Contact</h2>
+        <p class="section-text">
+          Un projet, une opportunité ou juste envie d’échanger ? Laisse-moi un message via ce
+          formulaire :
+        </p>
+
+        <form id="contact-form" class="contact-form">
+          <div class="form-field">
+            <label for="name">Nom</label>
+            <input id="name" name="name" type="text" required />
+          </div>
+
+          <div class="form-field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required />
+          </div>
+
+          <div class="form-field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+
+          <button type="submit" class="btn primary">
+            Envoyer
+          </button>
+
+          <p id="form-status" class="form-status"></p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© <span id="year"></span> Victorien Denoyelle — Portfolio</p>
+    </footer>
+  </div>
+
+  <!-- script compilé depuis main.ts -->
+  <script src="./js/main.js"></script>
+</body>
+</html>
