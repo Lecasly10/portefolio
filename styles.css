@@ -425,3 +425,19 @@ section {
         padding: 60px 15px;
     }
 }
+
+.chess-link {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #222;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  z-index: 1000;
+}
+.chess-link:hover {
+  background: #444;
+}
