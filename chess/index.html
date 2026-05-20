@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chess - Jeu d'Échecs</title>
+    <link rel="stylesheet" href="style/styles.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="navbar-container">
+        <div class="logo">
+          <span class="logo-icon">♚</span>
+          <span>Chess</span>
+        </div>
+        <nav class="nav-controls">
+          <select class="game-mode-select" id="gameModeSelect">
+            <option value="pvp">👥 Joueur vs Joueur</option>
+            <option value="ai">🤖 Joueur vs IA</option>
+          </select>
+          <button class="nav-btn" id="headerNewGame">+ Nouvelle Partie</button>
+          <a href="../index.html" class="portfolio-btn">← Portfolio</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="container">
+      <!-- Zone de jeu principale -->
+      <main class="game-area">
+        <!-- Panneau de gauche - Informations -->
+        <aside class="left-panel">
+          <div class="player-info">
+            <div class="player black-player">
+              <div class="player-avatar">
+                <i class="fas fa-user"></i>
+              </div>
+              <div class="player-details">
+                <span class="player-name">Joueur Noir</span>
+              </div>
+              <div class="captured-pieces" id="capturedByWhite"></div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Échiquier -->
+        <div class="board-container">
+          <div class="board-wrapper">
+            <div class="coordinates coordinates-left">
+              <div class="coord">8</div>
+              <div class="coord">7</div>
+              <div class="coord">6</div>
+              <div class="coord">5</div>
+              <div class="coord">4</div>
+              <div class="coord">3</div>
+              <div class="coord">2</div>
+              <div class="coord">1</div>
+            </div>
+
+            <div class="board-main">
+              <div class="chessboard" id="chessboard">
+                <!-- Les cases seront générées par JavaScript -->
+              </div>
+
+              <div class="coordinates coordinates-bottom">
+                <div class="coord">a</div>
+                <div class="coord">b</div>
+                <div class="coord">c</div>
+                <div class="coord">d</div>
+                <div class="coord">e</div>
+                <div class="coord">f</div>
+                <div class="coord">g</div>
+                <div class="coord">h</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contrôles de jeu -->
+          <div class="game-controls">
+            <button class="control-btn" id="newGameBtn">
+              <i class="fas fa-plus"></i> Nouvelle Partie
+            </button>
+          </div>
+        </div>
+
+        <!-- Panneau de droite - Informations -->
+        <aside class="right-panel">
+          <div class="player-info">
+            <div class="player white-player">
+              <div class="player-avatar">
+                <i class="fas fa-user"></i>
+              </div>
+              <div class="player-details">
+                <span class="player-name">Joueur Blanc</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Status du jeu -->
+          <div class="game-status">
+            <h3><i class="fas fa-info-circle"></i> Status</h3>
+            <div class="status-content">
+              <div class="current-turn" id="currentTurn">
+                <i class="fas fa-chess-pawn"></i>
+                <span>Aux blancs de jouer</span>
+              </div>
+              <div class="game-info" id="gameInfo">
+                <div class="info-item">
+                  <span class="label">Coups:</span>
+                  <span class="value" data-info="moves">0</span>
+                </div>
+                <div class="info-item">
+                  <span class="label">État:</span>
+                  <span class="value" data-info="state">En cours</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </main>
+
+      <!-- Messages et notifications -->
+      <div class="notification" id="notification">
+        <div class="notification-content">
+          <span class="notification-text"></span>
+          <button class="notification-close" onclick="closeNotification()">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Modal pour fin de partie -->
+      <div class="modal" id="gameEndModal">
+        <div class="modal-content">
+          <h2 class="modal-title"></h2>
+          <p class="modal-message"></p>
+          <div class="modal-actions">
+            <button class="modal-btn primary" id="modalNewGame">
+              <i class="fas fa-plus"></i> Nouvelle Partie
+            </button>
+            <button class="modal-btn secondary" id="modalClose">
+              <i class="fas fa-times"></i> Fermer
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal pour promotion des pions -->
+      <div class="modal" id="promotionModal">
+        <div class="modal-content">
+          <h2 class="modal-title">🏆 Promotion du pion</h2>
+          <p class="modal-message">
+            Choisissez la pièce pour promouvoir votre pion :
+          </p>
+          <div class="promotion-choices">
+            <button class="promotion-btn" data-piece="Q">
+              <span class="promotion-piece">♛</span>
+              <span>Reine</span>
+            </button>
+            <button class="promotion-btn" data-piece="R">
+              <span class="promotion-piece">♜</span>
+              <span>Tour</span>
+            </button>
+            <button class="promotion-btn" data-piece="B">
+              <span class="promotion-piece">♝</span>
+              <span>Fou</span>
+            </button>
+            <button class="promotion-btn" data-piece="N">
+              <span class="promotion-piece">♞</span>
+              <span>Cavalier</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="scripts/chess-engine.js"></script>
+    <script src="scripts/chess-ai.js"></script>
+    <script src="scripts/chess-ui.js"></script>
+  </body>
+</html>
